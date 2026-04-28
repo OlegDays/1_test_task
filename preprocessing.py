@@ -1,6 +1,5 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import math
 
 
 df = pd.read_csv("task2.csv", encoding="UTF-8")
