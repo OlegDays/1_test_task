@@ -6,13 +6,14 @@ import pandas as pd
 df = pd.read_csv("anamorf.csv", encoding="UTF-8")
 x = df["t"].values.reshape(-1, 1)
 y = df["y"]
-lenght = 103
+start = 75
+end = 120
 
 model = LinearRegression()
-model.fit(x[66:lenght], y[66:lenght])
-y_pred = model.predict(x[66:lenght])
-plt.scatter(x[66:lenght], y[66:lenght])
-plt.plot(x[66:lenght], y_pred, 'r')
+model.fit(x[start:end], y[start:end])
+y_pred = model.predict(x[start:end])
+plt.scatter(x[start:end], y[start:end])
+plt.plot(x[start:end], y_pred, 'r')
 plt.legend()
 plt.show()
 

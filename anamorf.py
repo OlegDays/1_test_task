@@ -4,25 +4,20 @@ import math
 
 df = pd.read_csv("good2.csv", encoding="UTF-8")
 
-lenght = df.size // 2
+lenght = len(df)
 dat_t = df["t"]
 dat_y = df["y"]
 x = []
 ylog = []
-count = 0
-y_helped = 0
 for i in range(1, lenght):
-    und_log = (df["y"][i] - df["y"][i - 1]) / 2
-    if und_log > 0:
-        y = math.log((1 / df["y"][i]) * und_log)
-        y_helped = y
-        ylog.append(y)
-    else:
-        ylog.append(y_helped)
-    x.append(df["t"][i])
+    und_log = (df["y"].iloc[i] - df["y"].iloc[i - 1]) / (df["t"].iloc[i] - df["t"].iloc[i - 1])
+    y = math.log((1 / df["y"].iloc[i]) * und_log)
+    ylog.append(y)
+    x.append((df["t"].iloc[i] + df["t"].iloc[i-1])/2)
 
 data = pd.Series(ylog)
-y_data = data.rolling(window=21, center=True, min_periods=1).mean()
+span = 17
+y_data = data.ewm(span=span, adjust=False).mean()
 x_data = pd.Series(x)
 
 print(x_data.size)
@@ -31,7 +26,7 @@ df.set_index('t', inplace=True)
 df.to_csv("anamorf.csv", encoding="UTF-8")
 
 plt.figure(figsize=(12, 5))
-plt.plot(x_data.index, y_data, marker='o', linestyle='-', markersize=3)
+plt.plot(x_data, y_data, marker='o', linestyle='-', markersize=3)
 plt.title('Визуализация анаморфозы')
 plt.xlabel('t')
 plt.ylabel('ln(1/y * dy/dt)')
