@@ -9,6 +9,7 @@ y = df["y"]
 start = 75
 end = 150
 
+
 model = LinearRegression()
 model.fit(x[start:end], y[start:end])
 y_pred = model.predict(x[start:end])

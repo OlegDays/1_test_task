@@ -27,6 +27,7 @@ lenght = 150
 x = x_data[start:lenght].values.reshape(-1, 1)
 y = y_data[start:lenght]
 
+
 model = LinearRegression()
 model.fit(x, y)
 y_pred = model.predict(x)

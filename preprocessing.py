@@ -16,6 +16,7 @@ plt.ylabel('y')
 plt.grid(True)
 plt.show()
 
+
 good_df = df.copy()
 span = 65
 good_df["y_sgl"] = good_df["y"].ewm(span=span, adjust=False).mean()

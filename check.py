@@ -9,6 +9,7 @@ k = 0.40144
 a = 18.81209
 y_data = []
 
+
 for i in range(0, len(df)):
     y_data.append(math.log(math.log(y_inf / df["y"][i])))
 

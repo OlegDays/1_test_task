@@ -22,6 +22,7 @@ x_data = pd.Series(x)
 span = 17
 y_data = y_data.ewm(span=span, adjust=False).mean()
 
+
 print(x_data.size)
 df = pd.DataFrame({"t": x_data, "y": y_data})
 df.set_index('t', inplace=True)
