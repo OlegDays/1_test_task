@@ -19,7 +19,7 @@ y_data = pd.Series(ylog)
 
 x_data = pd.Series(x)
 
-span = 17
+span = 3
 y_data = y_data.ewm(span=span, adjust=False).mean()
 
 

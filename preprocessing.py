@@ -18,7 +18,7 @@ plt.show()
 
 
 good_df = df.copy()
-span = 65
+span = 17
 good_df["y_sgl"] = good_df["y"].ewm(span=span, adjust=False).mean()
 
 y_mono = good_df["y_sgl"].values
