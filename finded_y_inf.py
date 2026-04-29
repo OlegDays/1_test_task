@@ -10,11 +10,7 @@ y_data = []
 
 for i in range(1, len(df)):
     dt = df["t"].iloc[i] - df["t"].iloc[i-1]
-    if dt <= 0:
-        continue
     dy = df["y"].iloc[i] - df["y"].iloc[i-1]
-    if dy <= 0:
-        continue
     y_val = df["y"].iloc[i]
     tempo = (1 / y_val) * (dy / dt)
     x_data.append(math.log(y_val))
@@ -26,8 +22,8 @@ y_data = pd.Series(y_data)
 span = 51
 y_data = y_data.ewm(span=span, adjust=False).mean()
 
-start = 75
-lenght = 120
+start = 70
+lenght = 150
 x = x_data[start:lenght].values.reshape(-1, 1)
 y = y_data[start:lenght]
 

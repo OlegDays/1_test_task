@@ -6,8 +6,8 @@ import pandas as pd
 df = pd.read_csv("anamorf.csv", encoding="UTF-8")
 x = df["t"].values.reshape(-1, 1)
 y = df["y"]
-start = 75
-end = 120
+start = 70
+end = 140
 
 model = LinearRegression()
 model.fit(x[start:end], y[start:end])
