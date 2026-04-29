@@ -3,7 +3,7 @@ from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 import math
 
-df = pd.read_csv("good2.csv", encoding="UTF-8")
+df = pd.read_csv("../data/good2.csv", encoding="UTF-8")
 y_inf = 15638.693994919746066740527
 y_data = []
 

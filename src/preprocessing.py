@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("task2.csv", encoding="UTF-8")
+df = pd.read_csv("../data/task2.csv", encoding="UTF-8")
 print(df.head())
 print("=========")
 print(df.tail())
@@ -45,4 +45,4 @@ plt.ylabel('y')
 plt.grid(True)
 plt.show()
 
-done_df.to_csv("good2.csv", index=False)
+done_df.to_csv("../data/good2.csv", index=False)

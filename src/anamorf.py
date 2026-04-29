@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import math
 
-df = pd.read_csv("good2.csv", encoding="UTF-8")
+df = pd.read_csv("../data/good2.csv", encoding="UTF-8")
 
 lenght = len(df)
 dat_t = df["t"]
@@ -26,7 +26,7 @@ y_data = y_data.ewm(span=span, adjust=False).mean()
 print(x_data.size)
 df = pd.DataFrame({"t": x_data, "y": y_data})
 df.set_index('t', inplace=True)
-df.to_csv("anamorf.csv", encoding="UTF-8")
+df.to_csv("../data/anamorf.csv", encoding="UTF-8")
 
 plt.figure(figsize=(12, 5))
 plt.plot(x_data, y_data, marker='o', linestyle='-', markersize=3)

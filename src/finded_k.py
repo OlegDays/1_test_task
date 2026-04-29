@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-df = pd.read_csv("anamorf.csv", encoding="UTF-8")
+df = pd.read_csv("../data/anamorf.csv", encoding="UTF-8")
 x = df["t"].values.reshape(-1, 1)
 y = df["y"]
 start = 75
