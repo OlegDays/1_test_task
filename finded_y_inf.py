@@ -19,10 +19,10 @@ for i in range(1, len(df)):
 x_data = pd.Series(x_data)
 y_data = pd.Series(y_data)
 
-span = 51
+span = 3
 y_data = y_data.ewm(span=span, adjust=False).mean()
 
-start = 70
+start = 75
 lenght = 150
 x = x_data[start:lenght].values.reshape(-1, 1)
 y = y_data[start:lenght]

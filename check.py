@@ -24,8 +24,8 @@ plt.show()
 
 x = df["t"].values.reshape(-1, 1)
 y = y_data
-start = 70
-end = 140
+start = 75
+end = 150
 
 model = LinearRegression()
 model.fit(x[start:end], y[start:end])

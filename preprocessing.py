@@ -17,17 +17,15 @@ plt.grid(True)
 plt.show()
 
 good_df = df.copy()
-span = 51
+span = 65
 good_df["y_sgl"] = good_df["y"].ewm(span=span, adjust=False).mean()
 
-# ------------------ принудительная монотонизация (неубывание) ------------------
 y_mono = good_df["y_sgl"].values
 for i in range(1, len(y_mono)):
     if y_mono[i] < y_mono[i - 1]:
         y_mono[i] = y_mono[i - 1] * 1.001
 good_df["y_mono"] = y_mono
 
-# ------------------ отбор точек с положительной производной (по монотонному ряду) ------------------
 x_data = []
 y_data = []
 for i in range(1, len(good_df)):

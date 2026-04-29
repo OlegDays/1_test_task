@@ -15,10 +15,12 @@ for i in range(1, lenght):
     ylog.append(y)
     x.append((df["t"].iloc[i] + df["t"].iloc[i-1])/2)
 
-data = pd.Series(ylog)
-span = 17
-y_data = data.ewm(span=span, adjust=False).mean()
+y_data = pd.Series(ylog)
+
 x_data = pd.Series(x)
+
+span = 17
+y_data = y_data.ewm(span=span, adjust=False).mean()
 
 print(x_data.size)
 df = pd.DataFrame({"t": x_data, "y": y_data})
